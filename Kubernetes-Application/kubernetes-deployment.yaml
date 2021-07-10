@@ -11,9 +11,7 @@ spec:
     metadata:
       labels:
         app: aks-demo-app
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": Windows
+    spec:      
       containers:
       - name: aks-demo-app
         image: #{ACR}#/aksdemoapp
