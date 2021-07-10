@@ -36,7 +36,7 @@ spec:
 
       - name: aks-demo-app
 
-        image: #{ACR}#/aksdemoapp
+        image: #{ACR}#/cloudbeaver/kubernetes-repo
 
         imagePullPolicy: Always
 
