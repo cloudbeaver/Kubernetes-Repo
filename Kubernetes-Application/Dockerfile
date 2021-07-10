@@ -9,8 +9,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["cloudbeaver/Kubernetes-Repo/Kubernetes-Application/Kubernetes-Application.csproj", "Kubernetes-Application/"]
-RUN dotnet restore "cloudbeaver/Kubernetes-Repo/Kubernetes-Application/Kubernetes-Application.csproj"
+COPY ["ubernetes-Application/", "Kubernetes-Application/"]
+RUN dotnet restore "Kubernetes-Application/Kubernetes-Application.csproj"
 COPY . .
 WORKDIR "/src/Kubernetes-Application"
 RUN dotnet build "Kubernetes-Application.csproj" -c Release -o /app/build
