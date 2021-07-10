@@ -9,7 +9,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["ubernetes-Application/", "Kubernetes-Application/"]
+COPY ["Kubernetes-Application/", "Kubernetes-Application/"]
 RUN dotnet restore "Kubernetes-Application/Kubernetes-Application.csproj"
 COPY . .
 WORKDIR "/src/Kubernetes-Application"
