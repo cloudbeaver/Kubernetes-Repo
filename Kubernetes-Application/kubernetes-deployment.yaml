@@ -1,0 +1,39 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-demo-app
+  template:
+    metadata:
+      labels:
+        app: aks-demo-app
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": windows
+      containers:
+      - name: aks-demo-app
+        image: #{ACR}#/aksdemoapp
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 80        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-demo-app
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: aks-demo-app
