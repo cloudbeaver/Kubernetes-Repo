@@ -1,37 +1,77 @@
 ﻿apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
+
   name: aks-demo-app
+
 spec:
+
   replicas: 1
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+
+      maxSurge: 1
+
+      maxUnavailable: 1
+
+  minReadySeconds: 5 
   selector:
     matchLabels:
       app: aks-demo-app
   template:
+
     metadata:
+
       labels:
+
         app: aks-demo-app
-    spec:      
+
+    spec:
+
       containers:
+
       - name: aks-demo-app
+
         image: #{ACR}#/aksdemoapp
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
+
+        imagePullPolicy: Always
+
         ports:
-        - containerPort: 80        
+
+        - containerPort: 80
+
+        resources:
+
+          requests:
+
+            cpu: 250m
+
+          limits:
+
+            cpu: 500m
+      
+
 ---
+
 apiVersion: v1
+
 kind: Service
+
 metadata:
+
   name: aks-demo-app
+
 spec:
+
   type: LoadBalancer
+
   ports:
+
   - port: 80
+
   selector:
     app: aks-demo-app
