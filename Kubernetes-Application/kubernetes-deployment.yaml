@@ -16,7 +16,7 @@ spec:
         "beta.kubernetes.io/os": windows
       containers:
       - name: aks-demo-app
-        image: #{   }#/aksdemoapp
+        image: #{ACR}#/aksdemoapp
         resources:
           requests:
             cpu: 100m
