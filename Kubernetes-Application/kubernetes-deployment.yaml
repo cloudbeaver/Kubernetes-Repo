@@ -13,7 +13,7 @@ spec:
         app: aks-demo-app
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": Linux
+        "beta.kubernetes.io/os": Windows
       containers:
       - name: aks-demo-app
         image: #{ACR}#/aksdemoapp
