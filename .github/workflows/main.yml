@@ -20,10 +20,6 @@ env:
   #CLUSTER_RESOURCE_GROUP: {resource-group-name}
   #NAMESPACE: {namespace-name}
   APP_NAME: aks-container-githubactions
-  
-defaults:
-  run:
-    working-directory: ./Kubernetes-Repo/Kubernetes-Application/
 
 jobs:
   build:
@@ -42,3 +38,4 @@ jobs:
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
+      working-directory: ./Kubernetes-Repo/Kubernetes-Application/
