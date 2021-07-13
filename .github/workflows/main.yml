@@ -21,6 +21,10 @@ env:
   #NAMESPACE: {namespace-name}
   APP_NAME: aks-container-githubactions
   
+defaults:
+  run:
+    working-directory: ./Kubernetes-Repo/Kubernetes-Application/
+
 jobs:
   build:
     runs-on: ubuntu-latest
