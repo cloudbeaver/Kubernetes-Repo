@@ -15,7 +15,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 env:
-  REGISTRY_NAME: vefpievufnpve
+  REGISTRY_NAME: containeregistry8617
   #CLUSTER_NAME: {cluster-name}
   #CLUSTER_RESOURCE_GROUP: {resource-group-name}
   #NAMESPACE: {namespace-name}
